@@ -2,14 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Movement2D : MonoBehaviour
+[RequireComponent(typeof(Rigidbody2D))]
+public class Movement : MonoBehaviour
 {
-
-	public Rigidbody2D rb;
-	public Transform Player;
-	public float JumpForce;
+	[Header("You need Rigidbody2D for this to work")]
+	private Rigidbody2D rb;
 	public float MoveForce;
-	// Update is called once per frame
+	public float JumpForce;
+
+	public float DefMove;
+	public float DefJump;
+
+	void Start()
+	{
+		rb = gameObject.GetComponent<Rigidbody2D>();
+
+		DefMove = MoveForce;
+		DefJump = JumpForce;
+	}
 	void Update()
 	{
 		// Jump
@@ -19,6 +29,11 @@ public class Movement2D : MonoBehaviour
 		}
 
 		if (Input.GetKeyDown(KeyCode.W))
+		{
+			rb.AddForce(new Vector2(1, JumpForce * 100));
+		}
+
+		if (Input.GetKeyDown(KeyCode.UpArrow))
 		{
 			rb.AddForce(new Vector2(1, JumpForce * 100));
 		}
@@ -34,17 +49,36 @@ public class Movement2D : MonoBehaviour
 		{
 			rb.AddForce(new Vector2(-MoveForce * 100, 0));
 		}
+	}
 
-		/*
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			Player.Translate(new Vector2(-MoveForce * 100, 0) * Time.deltaTime, Space.World);
-		}
 
-		if (Input.GetKeyDown(KeyCode.D))
-		{
-			Player.Translate(new Vector2(MoveForce * 100, 0) * Time.deltaTime, Space.World);
-		}
-		*/
+	public void SetSpeed(float move, float jump)
+	{
+		JumpForce = jump;
+		MoveForce = move;
+	}
+
+	public void SetSpeed(Vector2 v)
+	{
+		MoveForce = v.x;
+		JumpForce = v.y;
+	}
+
+	public float GetMove()
+	{
+		return MoveForce;
+	}
+	public float GetJump()
+	{
+		return JumpForce;
+	}
+
+	public float GetDefMove()
+	{
+		return DefMove;
+	}
+	public float GetDefJump()
+	{
+		return DefJump;
 	}
 }

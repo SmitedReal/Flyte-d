@@ -1632,7 +1632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da63b61d8e385340855962d471592f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Joined: THE END
+  Joined: FIVE
 --- !u!1001 &748015592
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -102,10 +102,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65913365b4e2086459d8872f0c547d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 8669482705951705469}
-  Player: {fileID: 8600026521810991170}
-  JumpForce: 0
   MoveForce: 0
+  JumpForce: 0
+  DefMove: 0
+  DefJump: 0
 --- !u!50 &8669482705951705469
 Rigidbody2D:
   serializedVersion: 4
@@ -194,6 +194,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Place: {x: 0, y: 0}
+  ResetSize: {x: 1, y: 1}
 --- !u!1 &4437251524649779502
 GameObject:
   m_ObjectHideFlags: 0

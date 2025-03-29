@@ -13417,7 +13417,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   Place: {x: 0, y: 0}
-  att: 0
 --- !u!1001 &1378684524
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21534,7 +21533,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 2
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -22018,7 +22017,7 @@ RectTransform:
   m_GameObject: {fileID: 2141639326}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2072880959}
@@ -22026,7 +22025,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 316.4995, y: 86.7227}
+  m_SizeDelta: {x: 320, y: 90}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &2141639328
 MonoBehaviour:
@@ -22048,7 +22047,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Made by Smite'd \nPress R to rest"
+  m_text: "Made by Smite'd \nPress R to reset"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

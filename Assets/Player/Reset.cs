@@ -1,36 +1,59 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Movement))]
 public class Reset : MonoBehaviour
 {
-	public LayerMask collisionLayer; // Layer to detect collisions with
+	[Header("You need Collider2D for this to work")]
+	[Header("You need Movement for this to work")]
+	public LayerMask collisionLayer;
 	public Vector2 Place = new Vector2(0, 0);
+	private Vector2 ResetSize = new Vector2(1,1);
+	public Transform GOPlace;
+	private bool b;
 
-	// Update is called once per frame
+	void Start()
+	{
+		if (GOPlace == null)
+		{
+			b = false;
+		}
+	}
 	void Update()
 	{
-		// Check if the "R" key is pressed
 		if (Input.GetKeyDown(KeyCode.R))
 		{
 			ResetPlayer();
 		}
 	}
 
-	// This function is called when the player collides with another object
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
-		// Check if the collided object is on the selected layer
 		if (collisionLayer == (collisionLayer | (1 << collision.gameObject.layer)))
 		{
 			ResetPlayer();
 		}
 	}
 
-	// Function to reset the player's position and rotation
 	private void ResetPlayer()
 	{
-			// Reset position to (x and y)
-			transform.position = Place;
-		// Reset rotation to default (no rotation)
+		if (b)
+		{
+			transform.position = GOPlace.position;
+		}
+		transform.position = Place;
 		transform.rotation = Quaternion.identity;
+		//ResetSS();
+	}
+
+	private void ResetSS()
+	{
+		Movement m = gameObject.GetComponent<Movement>();
+		float sp = m.GetDefMove();
+		float ju = m.GetDefJump();
+
+		transform.localScale = ResetSize;
+
+		m.SetSpeed(sp, ju);
 	}
 }
